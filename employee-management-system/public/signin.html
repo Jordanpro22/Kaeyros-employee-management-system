@@ -1,0 +1,51 @@
+<!-- public/signin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-logo">
+            <img src="images\Scale=4.png" alt="Logo">
+            <h2>Sign in Kaeyros EMS</h2>
+        </div>
+       
+        <form id="signinForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" class="register-input"  placeholder="Name" required>
+
+            <label for="email">Email:</label> 
+            <input type="email" id="email" name="email" class="register-input"  placeholder="Email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" class="register-input"  placeholder="Phone Number" required>
+
+            <label for="department">Department:</label>
+            <select id="department" name="department" class="register-input"  placeholder="Department" required>
+                <option value="Tech Sales">Tech Sales</option>
+                <option value="Data Scientists">Data Scientists</option>
+                <option value="Dev / Offshoring / R&D Team">Dev / Offshoring / R&D Team</option>
+                <option value="Testing Team">Testing Team</option>
+                <option value="Operations & Maintainace Team">Operations & Maintainace Team</option>
+                <option value="Marketing">Marketing</option>
+                <option value="UI / UX">UI / UX</option>
+            </select>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="register-input"  placeholder="Password" required>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" class="register-input"  placeholder="Confirm Password" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="index.html">Login</a></p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
