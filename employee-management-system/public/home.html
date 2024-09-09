@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System Kaeyros</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+     <!-- Top Header -->
+    <header>
+        <div class="header-styles">
+            <div class="left-logo">
+                <img src="images\Logo-KAEYROS-ANALYTTICS.png" alt="Left Logo">
+            </div>
+            <div class="search-bar">
+                <img src="images\search-icon.svg" class="image">
+                <input type="text" id="dashboardSearch" placeholder="Recherche">
+            </div>
+            <div class="right-logo">
+                <img src="images\Frame 427319274.svg" alt="Right Logo">
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            
+            <nav>
+                <ul>
+                    <li><div class="nav-link active" data-target="home"><img class="icon" src="images\home-2.svg" alt="">Tableau de bord</div></li>
+                    <li><div href="#" class="nav-link" data-target="users"><img class="icon" src="images\home-2.svg" alt="">
+                        Utilisateurs</div></li>
+                    <li><div href="#" class="nav-link" data-target="config"><img class="icon" src="images\setting-2.svg" alt="">
+                        Config</div></li>
+                </ul>
+            </nav>
+            <div class="logout">
+                <a href="login.html" onclick="alert('are you sure you want to logout ?')">Log Out</a>
+            </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="content">
+            <!-- Home Page -->
+            <div id="home" class="page active">
+                <div class="box-container">
+                    <div class="box">Admin: 0</div>
+                    <div class="box">Employees: 0</div>
+                    <div class="box">Departments: 0</div>
+                    <div class="box">Players: 0</div>
+                    <div class="box">Winners: 0</div>
+                    <div class="box">Losers: 0</div>
+                </div>
+                <div class="graph">
+                    <img src="images\graph-cards.svg" alt="Right Logo">
+                    <!-- Graph will be here -->
+                </div>
+            </div>
+
+            
+    <!--  -->
+
+    <div id="users" class="page">
+        
+    </div>
+    
+
+
+            <!--------------------  ----------------------->
+            <div id="config" class="page">
+                
+            </div>
+
+
+
+    <script src="app.js"></script>
+    
+        
+
+</body>
+</html>

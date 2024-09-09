@@ -1,0 +1,161 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Articulat-CF;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 1cm); /* Adjust height to account for the top header */
+}
+
+/* Top Header */
+.header-styles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1c1c1c;
+    padding: 10px 16px 10px 16px;
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+}
+
+.left-logo img {
+    width: 80px;
+    max-width: 150px;
+    margin-bottom: 15px;
+}
+
+.right-logo {
+    padding-right: 20px;
+}
+
+
+/* General Styles for Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #323232;
+    gap: 10px;
+    border-radius: 8px;
+    width: 472px;
+    height: 36px;
+}
+
+.search-bar img {
+    width: 32px;
+    height: 20px;
+    margin-right: 10px; 
+}
+
+.search-bar input[type="text"] {
+    padding: 8px;
+    border: none; 
+    outline: none;
+    width: 100%; /* Full width for the input field */
+    background: none; /* Transparent background */
+    font-size: 16px; /* Font size for the text */
+    color: #bab5b5;
+}
+
+.search-bar input[type="text"]::placeholder {
+    font-size: 14px;
+    line-height: 20px;
+    color: #5E5E5E;
+}
+
+
+.highlight {
+    background-color: #FAC30F;
+    font-weight: bold;
+}
+
+
+/* Sidebar */
+.sidebar {
+    font-family: Articulat-CF;
+    font-weight: bold;
+    font-size: 19px;
+    width:240px;
+    height:100%;
+    background-color: #1C1C1C;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px 0px 32px 0px;
+    position: fixed;
+    top: 56px; 
+    
+}
+
+.logo {
+    text-align: center;
+}
+
+nav {
+    width: 100%;
+    text-align: center;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+
+.nav-link {
+    width: 86%;
+    height: 48px;
+    text-decoration: none;
+    text-align: start;
+    padding-right: 30px;
+    padding: 5px 0 5px 30px;
+    color: #BABABA;
+    font-size: 18px;
+    transition: border 0.5s, background 0.5s;
+}
+
+.icon {
+    padding-right: 10px;
+    margin-top: 10px;
+}
+
+.nav-link:hover, .nav-link.active {
+    width: 84%;
+    background-color: #323232;
+    cursor: pointer;
+    border-left: 5px solid #FAC30F;
+    animation: none;
+}
+
+.logout {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.logout a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+/* Content */
+.content {
+    width: 80%;
+    margin-left: 5%;
+    padding: 80px 20px 20px 20px; /* Adjusted padding to account for the fixed top header */
+    overflow-y: auto;
+    position: relative;
+    top: 1cm; /* Start below the top header */
+    margin-left: 300px;
+}
+
+.page {
+    display: none;
+    animation: slideIn 0.8s ease-in-out;
+    animation-fill-mode: forwards;
+}

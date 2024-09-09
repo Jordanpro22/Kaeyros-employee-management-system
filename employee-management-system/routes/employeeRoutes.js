@@ -6,7 +6,7 @@ const Employee = require(path.resolve(__dirname, '../models/Employee'));
 const router = express.Router();
 
 // Get all employees
-router.get('/', async (req, res) => {
+router.get('/employees', async (req, res) => {
   try {
     const employees = await Employee.find();
     res.json(employees);

@@ -8,18 +8,18 @@ const router = express.Router();
 
 // Register a new user
 router.post('/register', async (req, res) => {
-  const { username, password } = req.body;
+  const { name, email, phone, department, password } = req.body;
 
   try {
-    // Check if username already exists
-    const existingUser = await User.findOne({ username });
-    if (existingUser) return res.status(400).json({ message: 'Username already exists' });
+    // Check if email already exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) return res.status(400).json({ message: 'Email already exists' });
 
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create new user
-    const newUser = new User({ username, password: hashedPassword });
+    // Create new user with all fields
+    const newUser = new User({ name, email, phone, department, password: hashedPassword });
     await newUser.save();
 
     res.status(201).json({ message: 'User registered successfully' });
@@ -30,37 +30,41 @@ router.post('/register', async (req, res) => {
 
 // Login a user
 router.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;  // This should now contain the correct data
 
   try {
-    // Find the user
-    const user = await User.findOne({ username });
-    if (!user) return res.status(400).json({ message: 'Invalid credentials' });
+      const user = await User.findOne({ email });
+      if (!user) {
+          return res.status(400).json({ message: 'User not found' });
+      }
 
-    // Check the password
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ message: 'Invalid credentials' });
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+          return res.status(400).json({ message: 'Invalid credentials' });
+      }
 
-    // Generate JWT
-    const token = jwt.sign({ id: user._id }, 'your_jwt_secret', { expiresIn: '1h' });
+      // Create a JWT token
+      const token = jwt.sign(
+          { userId: user._id, name: user.name },
+          'your_jwt_secret_key',
+          { expiresIn: '1h' }
+      );
 
-    res.json({ token });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+      res.status(200).json({ message: 'Login successful!', token });
+  } catch (error) {
+      res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
+router.get('/users', async (req, res) => {
+  try {
+      const users = await User.find({}, 'name email phone department createdAt', );  // Adjust fields as needed
+      res.status(200).json(users);
+  } catch (error) {
+      res.status(500).json({ message: 'Server error' });
   }
 });
 
 module.exports = router;
-
-// routes/authRoutes.js
-
-// Add this route at the bottom of authRoutes.js
-router.get('/users', async (req, res) => {
-  try {
-      const users = await User.find().select('-password');
-      res.json(users);
-  } catch (err) {
-      res.status(500).json({ message: err.message });
-  }
-});
 
